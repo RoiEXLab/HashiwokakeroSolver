@@ -5,6 +5,7 @@ addons:
     packages:
       - libgtest-dev
       - cmake
+      - g++
 
 before_install:
  - cd /usr/src/gtest

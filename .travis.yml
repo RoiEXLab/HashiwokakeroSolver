@@ -10,7 +10,7 @@ before_install:
  - cd /usr/src/gtest
  - sudo cmake CMakeLists.txt
  - sudo make
- - sudo cp -a libgtest_main.so libgtest.so /usr/lib/
+ - sudo cp *.a /usr/lib/
  - cd "${TRAVIS_BUILD_DIR}"
 
 before_script:

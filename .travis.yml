@@ -2,10 +2,14 @@ language: cpp
 sudo: required
 addons:
   apt:
+    source:
+      - ubuntu-toolchain-r-test
     packages:
       - libgtest-dev
       - cmake
-      - g++
+      - g++-7
+env:
+  - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
 
 before_install:
  - cd /usr/src/gtest

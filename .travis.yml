@@ -4,6 +4,7 @@ addons:
   apt:
     packages:
       - libgtest-dev
+      - cmake
 
 before_install:
  - cd /usr/src/gtest

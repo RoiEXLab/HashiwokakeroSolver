@@ -6,17 +6,14 @@ OBJECTS = $(addsuffix .o, $(basename $(filter-out %Main.cpp %Test.cpp, $(wildcar
 
 .PRECIOUS: %.o
 .SUFFIXES:
-.PHONY: all compile test checkstyke
+.PHONY: all compile test
 
-all: compile test checkstyle
+all: compile test
 
 compile: $(MAIN_BINARIES) $(TEST_BINARIES)
 
 test: $(TEST_BINARY)
 	$(TEST_BINARY)
-
-checkstyle:
-	python3 ../cpplint.py --repository=. *.h *.cpp
 
 clean:
 	rm -f *.o

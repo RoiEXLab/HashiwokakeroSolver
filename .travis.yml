@@ -1,0 +1,19 @@
+language: cpp
+matrix:
+  addons:
+    apt:
+      packages:
+        - libgtest-dev
+        - cmake
+
+before_install:
+ - cd /usr/src/gtest
+ - cmake CMakeLists.txt
+ - make
+ - sudo cp -a libgtest_main.so libgtest.so /usr/lib/
+ - cd "${TRAVIS_BUILD_DIR}"
+
+before_script:
+ - cd src
+
+script: make

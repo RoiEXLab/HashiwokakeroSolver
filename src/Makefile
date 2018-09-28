@@ -1,4 +1,4 @@
-CXX =$$CXX -Wall -pedantic -std=c++11 -g
+CXX = g++-7 -Wall -pedantic -std=c++11 -g
 MAIN_BINARIES = $(basename $(wildcard *Main.cpp))
 TEST_BINARY = ./TestAll
 HEADERS = $(wildcard *.h)

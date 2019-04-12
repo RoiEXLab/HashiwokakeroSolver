@@ -1,0 +1,38 @@
+plugins {
+    id 'cpp-application'
+    id 'cpp-unit-test'
+}
+
+repositories {
+    maven {
+        url = "https://repo.gradle.org/gradle/libs-snapshots-local/"
+    }
+}
+
+unitTest {
+    dependencies {
+        implementation 'org.gradle.cpp-samples:googletest:1.9.0-gr3-SNAPSHOT'
+    }
+    binaries.configureEach {
+        if (toolChain instanceof Gcc && targetMachine.operatingSystemFamily.linux) {
+            linkTask.get().linkerArgs.add("-lpthread")
+            linkTask.get().linkerArgs.add("-lgtest")
+            linkTask.get().linkerArgs.add("-lgtest_main")
+        }
+    }
+}
+
+application {
+    targetMachines.add(machines.linux.x86_64)
+}
+
+task copyAssets {
+  copy {
+    from "src/test/resources/"
+    into "build/test-results/test"
+  }
+}
+
+afterEvaluate {
+	runTest.dependsOn copyAssets
+}

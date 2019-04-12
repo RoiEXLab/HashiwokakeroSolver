@@ -1,14 +1,10 @@
 language: cpp
 sudo: required
-matrix:
-  include:
-    - os: linux
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-7
-before_install:
-  - export CXX=g++-7
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+before_install: echo "g++-7 can be found at $(which g++-7)"
 script: ./gradlew -Dorg.gradle.console=plain check

@@ -6,5 +6,5 @@ addons:
       - ubuntu-toolchain-r-test
     packages:
       - g++-7
-before_install: echo "g++-7 can be found at $(which g++-7)"
+before_install: sudo ln -sf /usr/bin/g++-7 /usr/bin/g++ && g++ --version
 script: ./gradlew -Dorg.gradle.console=plain check

@@ -9,8 +9,6 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-7
-      env:
-        - MATRIX_EVAL="CXX='g++-7 -Wall -std=c++11'"
 before_install:
-  - eval "${MATRIX_EVAL}"
+  - export 'CXX=g++-7 -Wall -std=c++11'
 script: ./gradlew -Dorg.gradle.console=plain check

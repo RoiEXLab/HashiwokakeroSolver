@@ -34,8 +34,6 @@ unitTest {
     binaries.configureEach {
         if (toolChain instanceof Gcc && targetMachine.operatingSystemFamily.linux) {
             linkTask.get().linkerArgs.add("-lpthread")
-            linkTask.get().linkerArgs.add("-lgtest")
-            linkTask.get().linkerArgs.add("-lgtest_main")
         }
     }
 }

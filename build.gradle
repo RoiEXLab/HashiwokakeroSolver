@@ -45,13 +45,11 @@ application {
     }
 }
 
-task copyAssets {
-  copy {
+task copyAssets(type: Copy) {
     from "src/test/resources/"
     into "build/test-results/test"
-  }
 }
 
 afterEvaluate {
-	runTest.dependsOn copyAssets
+	  runTest.dependsOn copyAssets
 }

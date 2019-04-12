@@ -10,5 +10,5 @@ matrix:
           packages:
             - g++-7
 before_install:
-  - export 'CXX=g++-7 -Wall -std=c++11'
+  - export 'CXX=g++-7'
 script: ./gradlew -Dorg.gradle.console=plain check

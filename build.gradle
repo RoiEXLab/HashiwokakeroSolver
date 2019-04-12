@@ -14,6 +14,7 @@ repositories {
 model {
     toolChains {
         gcc(Gcc) {
+			path '/usr/bin/g++-7'
             eachPlatform {
 				cppCompiler.withArguments { args ->
 					args << '-std=c++11'
